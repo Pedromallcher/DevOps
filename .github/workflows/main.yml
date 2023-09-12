@@ -14,9 +14,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Java
-        for i in $(seq 9 21); do
-          uses: actions/setup-java@v2
-          with:
-            java-version: $i
-          run: java -version
-        done
+        uses: actions/setup-java@v2
+        with:
+          java-version: 17
+
+      - name: Build application
+        run: mvn clean install
