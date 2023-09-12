@@ -1,0 +1,12 @@
+************1 - Crie um arquivo Javac*******************
+
+          javac App.java - > Referente a criar uma classe 
+
+
+***********2 - Criar uma Build , ou seja,uma imagem no Docker*****************
+
+            docker buildx build -t testeagora .
+
+*************3 - Rodar o codigo no Docker atraves desse comando: ***********
+            
+            docker run -it --rm demons
