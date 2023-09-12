@@ -1,23 +1,19 @@
-name: Java Workflow
+name: Continuos Integration
 
-on:
-  push:
-    branches:
-      - main
+on: pull_request
 
 jobs:
-  build:
+  continuos-integration:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Setup Java
-        uses: actions/setup-java@v2
+      - uses: actions/checkout@v3
+      - name: Using Node.js
+        uses: actions/setup-node@v2
         with:
-          java-version: 17.0.8
-
-      - name: Build application
-        run: ./gradlew build
-
+          node-version: 16.
+      - name: run install, build and test
+        run: |
+          npm install
+          npm run build 
+          npm run test
