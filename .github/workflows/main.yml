@@ -13,18 +13,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK 17
+    - name: Setup Java
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: main
-    repositories:
-      - https://github.com/actions/setup-maven
+
     - name: Setup Maven
-      uses: actions/setup-maven@v3
+      run: |
+        sudo apt update
+        sudo apt install maven
 
     - name: Build application
-      run: mvn clean install
-
-
+      run: |
+        mvn clean install
