@@ -14,9 +14,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: ${{ matrix.java-versions }}
-
-      - name: Run application
-        run: java -version
+        for i in $(seq 9 21); do
+          uses: actions/setup-java@v2
+          with:
+            java-version: $i
+          run: java -version
+        done
