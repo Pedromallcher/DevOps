@@ -16,7 +16,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
-          java-version: ignore
+          java-version: 17.0.8
 
       - name: Build application
         run: ./gradlew build
